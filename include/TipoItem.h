@@ -20,10 +20,17 @@ class TipoItem
 
     public:
         TipoItem();
-        TipoItem(int no,int vt, int custo); //Construtor
+        TipoItem(int No,int Vt, int Custo); //Construtor
 
-        void setItem(int n); //Sets
-        int getItem(); //gets
+        
+        void setNo(int n); //Sets
+        void setVt(int n); //Sets
+        void setCusto(int n); //Sets
+        
+        int getNo(); //gets
+        int getVt(); //gets
+        int getCusto(); //gets
+
         void imprime(); //imprimir componentes do item
 };
 
