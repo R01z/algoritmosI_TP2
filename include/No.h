@@ -12,7 +12,7 @@ struct No
     ListaEncadeada adjacencia;
 };
 
-void criaAdjacencia(No &nos);
+void criaAdjacencia(No *nos);
 
 
 #endif
