@@ -18,8 +18,9 @@ int main(){
 
     for(i=0;i<T;i++) criaAdjacencia(nos,arestas); //Ler cada uma das arestas
 
-    bolha(arestas,T);
+    ordena(arestas,T);//Ordenar a lista de arestas
 
+    
 
     return 0;
 }

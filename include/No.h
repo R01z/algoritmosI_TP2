@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <bits/stdc++.h>
 #include "ListaEncadeada.h"
 
 /*A estrutura No contem uma lista com as adjacencias do nó
@@ -13,7 +14,9 @@ struct No
     std::vector<int> adjacencia;
 };
 
-void criaAdjacencia(No *nos, ListaEncadeada &arestas);
-void bolha(ListaEncadeada &arestas, int n);
+void criaAdjacencia(No *nos, ListaEncadeada &arestas);//Criar adjacência e ler lista de arestas
+void ordena(ListaEncadeada &arestas, int n);//Função para ordenar a lista de arestas
+void DFS(int n,bool visitados[]);//Função DFS
+bool conectado(No *nos,int qdtNos);//Checa se grafo é conectado
 
 #endif
