@@ -8,21 +8,27 @@ Implementação do TipoItem, adaptar conforme necessidade de adaptação
 
 //Construtores
 TipoItem::TipoItem(){
-    no = -1;
+    no1 = -1;
+    no2 = -1;
     vt = -1;
     custo = -1;
 };
 
-TipoItem::TipoItem(int No,int Vt, int Custo){
-    no = No;
+TipoItem::TipoItem(int No1,int No2,int Vt, int Custo){
+    no1 = No1;
+    no2 = No2;
     vt = Vt;
     custo = Custo;
 };
 
 
 //Set, Get e Imprime
-void TipoItem::setNo(int n){
-    no = n;
+void TipoItem::setNo1(int n){
+    no1 = n;
+};
+
+void TipoItem::setNo2(int n){
+    no2 = n;
 };
 
 void TipoItem::setVt(int n){
@@ -33,9 +39,14 @@ void TipoItem::setCusto(int n){
     custo = n;
 };
 
-int TipoItem::getNo(){
-    return no;
+int TipoItem::getNo1(){
+    return no1;
 };
+
+int TipoItem::getNo2(){
+    return no2;
+};
+
 
 int TipoItem::getVt(){
     return vt;
@@ -46,5 +57,5 @@ int TipoItem::getCusto(){
 };
 
 void TipoItem::imprime(){
-    printf("No extremo:%d\nVT da aresta:%d\nCusto da aresta:%d\n", no,vt,custo);
+    printf("%d-%d|%d|%d\n", no1,no2,vt,custo);
 };

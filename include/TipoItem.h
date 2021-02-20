@@ -16,18 +16,20 @@ o custo dessa aresta(Ct) e o VT da conexão (soma dos VTs dos dois nós que form
 class TipoItem
 {
     private:
-        int no,vt,custo;
+        int no1,no2,vt,custo;
 
     public:
         TipoItem();
-        TipoItem(int No,int Vt, int Custo); //Construtor
+        TipoItem(int No1,int No2,int Vt, int Custo); //Construtor
 
         
-        void setNo(int n); //Sets
+        void setNo1(int n); //Sets
+        void setNo2(int n); //Sets
         void setVt(int n); //Sets
         void setCusto(int n); //Sets
         
-        int getNo(); //gets
+        int getNo1(); //gets
+        int getNo2(); //gets
         int getVt(); //gets
         int getCusto(); //gets
 

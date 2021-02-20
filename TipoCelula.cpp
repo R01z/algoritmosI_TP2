@@ -9,7 +9,8 @@ cónteúdo dos itens e apontadores serão feitos nas classes das estruturas.
 #include "include/TipoCelula.h"
 
 TipoCelula::TipoCelula(){
-    item.setNo(-1);
+    item.setNo1(-1);
+    item.setNo2(-1);
     item.setVt(-1);
     item.setCusto(-1);
     prox = NULL;

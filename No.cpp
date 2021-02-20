@@ -4,8 +4,8 @@
 
 using namespace std;
 
-void criaAdjacencia(No *nos){
-    TipoItem *item1, *item2;
+void criaAdjacencia(No *nos, ListaEncadeada &arestas){
+    TipoItem *aux;
 
     int no1,no2,valor,vtSomado;
 
@@ -13,14 +13,29 @@ void criaAdjacencia(No *nos){
 
     vtSomado = nos[no1].VT + nos[no2].VT;
 
-    item1 = new TipoItem(no2,vtSomado,valor);
-    item2 = new TipoItem(no1,vtSomado,valor);
+    nos[no1].adjacencia.push_back(no2);
+    nos[no2].adjacencia.push_back(no1);
 
-    nos[no1].adjacencia.insereFinal(*item1);
-    nos[no2].adjacencia.insereFinal(*item2);
+    aux = new TipoItem(no1,no2,vtSomado,valor);
 
-    free(item1);
-    free(item2);
+    arestas.insereFinal(*aux);
+
+    free(aux);
 }
 
+void bolha(ListaEncadeada &arestas, int n){
+    int i,j;
+    TipoItem itemA, itemB;
 
+    for(i=0;i<=n-1;i++){
+        for(j=1;j<=n-i;j++){
+            itemA = arestas.getItem(j);
+            itemB = arestas.getItem(j-1);
+            if(itemA.getCusto() < itemB.getCusto())
+                arestas.troca(j,j-1); 
+            else if(itemA.getCusto() == itemB.getCusto())
+                if(itemA.getVt() > itemB.getVt())
+                    arestas.troca(j-1,j); 
+        }
+    }
+};
