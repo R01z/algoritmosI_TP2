@@ -45,7 +45,7 @@ void ordena(ListaEncadeada &arestas, int n){
 
 /*Função de caminhamento em grafos DFS será usada para conferir se o grafo é conectado*/
 void DFS(int n,bool visitados[], No *nos){
-    vector<int>::iterator i; //Incremento do vetor
+    list<int>::iterator i; //Incremento do vetor
 
     visitados[n] = true; // O nó atual é marcado como visitado
 
@@ -69,4 +69,35 @@ bool conectado(No *nos,int qdtNos){
         if(visitados[i] == false) return false;//Retorna false se um nó não tiver sido visitado
     
     return true; //Retorna verdadeiro se todos os nós foram visitados
+}
+
+void reverseDelete(ListaEncadeada &arestas,ListaEncadeada &arvoreGM,No *nos,int qdtNos,int &cTotal,int &vtTotal){
+    int i;
+    int no1,no2;
+    TipoItem aux;
+
+    //Percorre a lista de arestas do maior peso para o menor
+    for(i=arestas.getTamanho();i>0;i--){
+        //Obtem os dois nós da aresta atual
+        aux = arestas.getItem(i);
+        no1 = aux.getNo1();
+        no2 = aux.getNo2();
+
+        //Remove a aresta na lista de adjacência de ambos os nós
+        nos[no1].adjacencia.remove(no2);
+        nos[no2].adjacencia.remove(no1);
+
+        //Se removendo os nós o grafo ficar desconectado então a aresta pertence ao grafo
+        if(conectado(nos,qdtNos) == false){
+            //Coloca a aresta de volta na adjacência
+            nos[no1].adjacencia.push_back(no2);
+            nos[no2].adjacencia.push_back(no1);
+
+            //Custo total e VT total são incrementados
+            cTotal += aux.getCusto();
+            vtTotal += aux.getVt();
+
+            arvoreGM.insereInicio(aux);//Adiciona aresta na árvore geradora 
+        }
+    }
 }

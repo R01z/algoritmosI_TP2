@@ -57,5 +57,5 @@ int TipoItem::getCusto(){
 };
 
 void TipoItem::imprime(){
-    printf("%d-%d|%d|%d\n", no1,no2,vt,custo);
+    printf("%d %d %d\n", no1,no2,custo);
 };
